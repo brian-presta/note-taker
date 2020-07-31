@@ -8,5 +8,10 @@
     "title": "Note",
     "text": "This is a note.",
     "id": "1"
+  },
+  {
+    "title": "Test",
+    "text": "double test\n",
+    "id": "2"
   }
 ]
