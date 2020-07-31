@@ -1,17 +1,1 @@
-[
-  {
-    "title": "Test Title",
-    "text": "Test text",
-    "id": "test_id"
-  },
-  {
-    "title": "Note",
-    "text": "This is a note.",
-    "id": "1"
-  },
-  {
-    "title": "Test",
-    "text": "double test\n",
-    "id": "2"
-  }
-]
+[]
