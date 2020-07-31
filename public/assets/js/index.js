@@ -9,10 +9,10 @@ var activeNote = {};
 
 // A function for getting all notes from the db
 var getNotes = function() {
-  return $.ajax({
-    url: "/api/notes",
-    method: "GET"
-  });
+  return fetch('/api/notes')
+  .then(response => response.json())
+  .then(notes => notes)
+
 };
 
 // A function for saving a note to the db
