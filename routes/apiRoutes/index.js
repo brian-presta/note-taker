@@ -21,6 +21,23 @@ router.post('/notes', (req, res) => {
         res.json(db)
     }
 });
+router.delete('/notes/:id', (req, res) => {
+    const result = findById(req.params.id,db)
+    if (result) {
+        db.splice(db.indexOf(result),1)
+        for (i=0;i<db.length;i++) {
+            db[i].id = `${i}`
+        }
+        fs.writeFileSync(
+            path.join(__dirname, '../../db/db.json'),
+            JSON.stringify(db,null,2)
+        )
+        res.json(db)
+    }
+    else {
+        res.status(400).send('ID not found')
+    }
+})
 
 function validateNote(note) {
     if (!note.title || typeof note.title !== 'string') {
@@ -30,6 +47,14 @@ function validateNote(note) {
         return false
     }
     return true
+}
+function findById(id,db) {
+    for (item of db) {
+        if  (item.id === id) {
+            return item
+        }
+    }
+    return false
 }
 
 module.exports = router
